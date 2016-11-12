@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  itineraty_id: MyString
+  sale_order_id: MyString
+  passenger_id: MyString
+
+two:
+  itineraty_id: MyString
+  sale_order_id: MyString
+  passenger_id: MyString
