@@ -1,3 +1,3 @@
 class Passenger < ApplicationRecord
-  has_many :tickets, class_name: "Ticket"
+  has_many :ticket, class_name: "Ticket"
 end

@@ -6,7 +6,6 @@ class CreateBuyers < ActiveRecord::Migration[5.0]
       t.string :company
       t.string :address
       t.string :country
-
       t.timestamps
     end
   end
