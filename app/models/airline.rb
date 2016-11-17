@@ -1,4 +1,5 @@
 class Airline < ApplicationRecord
-  has_many :plane, class_name: "Plane"
-  has_many :ticket, class_name: "Flight"
+  has_many :flights, class_name: "Flight"
+  has_many :planes, class_name: "Plane"
+  has_many :tickets, class_name: "Ticket"
 end

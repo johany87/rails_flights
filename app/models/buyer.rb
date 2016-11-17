@@ -1,3 +1,3 @@
 class Buyer < ApplicationRecord
-  has_many :sale_order, class_name: "SaleOrder"
+  has_many :sale_orders, class_name: "SaleOrder"
 end
