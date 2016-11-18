@@ -8,7 +8,19 @@
   </head>
 
   <body>
-    <h1>Application.html.erb</h1>
+    <nav class="navbar navbar-default">
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <a class="navbar-brand" href="<%= root_path %>">Rails Flight</a>
+        <ul class="nav navbar-nav navbar-right">
+          <% if !current_user %>
+              <li><a href="<%= new_user_session_path %>">Sig In</a></li>
+              <li><a href="<% new_user_registration_path %>">Sig Out</a></li>
+          <% else %>
+              <li><a href="<% distroy_user_session_path %>" data-method>Sig Out</a></li>
+          <% end %>
+        </ul>
+       </div>
+    </nav>
     <%= yield %>
   </body>
 </html>
