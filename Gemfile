@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+#Pry for debugging code, user anywhere in yout code
+gem 'pry'
 # bootstrap-sass
 gem 'bootstrap-sass', '~> 3.3.6'
 #gem for authentication of the users

@@ -16,7 +16,7 @@
               <li><a href="<%= new_user_session_path %>">Sig In</a></li>
               <li><a href="<% new_user_registration_path %>">Sig Out</a></li>
           <% else %>
-              <li><a href="<% distroy_user_session_path %>" data-method>Sig Out</a></li>
+              <li><a href="<% destroy_user_session_path %>" data-method="delete">Sig Out</a></li>
           <% end %>
         </ul>
        </div>
