@@ -28,17 +28,22 @@ class CitiesController < ApplicationController
 
   end
 
-    def edit
-      @city = City.find_by(id: params[:id])
-    end
+  def edit
+    @city = City.find_by(id: params[:id])
+  end
 
-    def update
-      @city = City.find_by(id: params[:id])
-      if @city.update_attributes(city_params)
-        redirect_to cities_path
-      else
-        render 'new'
-      end
+  def update
+    @city = City.find_by(id: params[:id])
+  if @city.update_attributes(city_params)
+      redirect_to cities_path
+  else
+      render 'new'
+  end
+
+  def show
+    @city = City.find_by(id: params[:id])
+  end
+
  end
 
   private

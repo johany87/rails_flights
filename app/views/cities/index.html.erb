@@ -1,6 +1,6 @@
 <div class="container">
 
-  <h1 class="text-center"> Cities </h1>
+  <h1 class="text-center"> Selected City </h1>
 
   <% @cities.each do |c| %>
     <article class="row city">
@@ -9,7 +9,8 @@
         <li class="col-md-2"><%= c.country_name %></li>
         <li class="col-md-2"><%= c.time_zone %></li>
         <li class="col-md-2"><a href="<%= city_path(c.id) %>" data-method="delete" class="btn btn-danger"> Delete </a></li>
-      <li class="col-md-2"> <a href="<%= edit_city_path(c.id)%>" class="btn btn-default"> Edit</a> </li>
+        <li class="col-md-2"> <a href="<%= edit_city_path(c.id)%>" class="btn btn-default"> Edit</a> </li>
+        <li class="col-md-2"> <a href="<%= city_path(c.id)%>">View</a></li>
       </ul>
     </article>
   <% end if @cities.any? %>

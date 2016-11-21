@@ -3,20 +3,26 @@
 </div>
 
 <div class="container">
-  <%= form_for @city do |f| %>
+
+  <%= form_for @city do |c| %>
+
     <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, class: "form-control" %>
+      <%= c.label :name %>
+      <%= c.text_field :name, class: "form-control" %>
     </div>
+
     <div class="form-group">
-      <%= f.label :country_name %>
-      <%= f.text_field :country_name, class: "form-control" %>
+      <%= c.label :country_name %>
+      <%= c.text_field :country_name, class: "form-control" %>
     </div>
-    <div class="form-group">
-      <%= f.label :time_zone %>
-      <%= f.text_field :time_zone, class: "form-control" %>
+
+    <div ccass="form-group">
+      <%= c.label :time_zone %>
+      <%= c.text_field :time_zone, class: "form-control" %>
     </div>
-    <%= f.submit "Update City", class:"btn btn-primary" %>
+
+    <%= c.submit "Update City", class:"btn btn-primary" %>
+
   <% end %>
 </div>
 

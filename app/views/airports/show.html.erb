@@ -1,0 +1,10 @@
+<div class="container">
+    <h1 class="text-center">Airport Selected</h1>
+</div>
+
+<% form_for @airport do |a| %>
+  <%= a.label :name %>
+  <%= a.label :city_id %>
+  <a href="<%= airport_path(a.id) %>" data-method="delete" class="btn btn-danger"> Delete </a>
+  <a href="<%= edit_airport_path(a.id)%>" class="btn btn-default"> Edit</a>
+<% end %>

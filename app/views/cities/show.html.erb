@@ -1,7 +1,12 @@
 <div class="container">
-
-  <h1>Edit City</h1>
-
-      <h3> <%= city.name %> </h3>
-
+    <h1 class="text-center">City</h1>
 </div>
+
+<article class="row city">
+  <article>
+    <strong>Name</strong>
+    <p> <%= @city.label :name %> </p>
+    <strong>Country Name</strong>
+    <p><%= @city.label :country_name %></p>
+  </article>
+</article>

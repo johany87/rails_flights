@@ -22,7 +22,7 @@ class AirportsController < ApplicationController
     if airport.destroy
       flash[:success] = "Airport Destroyed Successfully"
     else
-      flash[:error] = "Houston we are in troubles, please try new"
+      flash[:error] = "Houston we are in troubles, please try later"
     end
     redirect_to airports_path
   end
@@ -33,11 +33,16 @@ class AirportsController < ApplicationController
 
   def update
     @airport = Airport.find_by(id: params[:id])
-    if @airport.update_attributes(airport_params)
-      redirect_to airports_path
-    else
-      render 'new'
-    end
+  if @airport.update_attributes(airport_params)
+    redirect_to airports_path
+  else
+    render 'new'
+  end
+
+  def show
+    @airport = Airport.find_by(id: params[:id])
+  end 
+
   end
 
   def airport_params
