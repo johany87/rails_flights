@@ -2,11 +2,11 @@ class CitiesController < ApplicationController
 
   def index
     @cities = City.all
-  end
+  end #index method
 
   def new
     @city = City.new
-  end
+  end # new method
 
   def create
     @city = City.new(city_params)
@@ -15,7 +15,7 @@ class CitiesController < ApplicationController
     else
       render 'new'
     end
-  end
+  end #create method
 
   def destroy
     city = City.find_by(id: params[:id])
@@ -25,32 +25,32 @@ class CitiesController < ApplicationController
       flash[:error] = "Houston we are in troubles, please try it later"
     end
     redirect_to cities_path
-
-  end
+  end #destroy method
 
   def edit
     @city = City.find_by(id: params[:id])
-  end
+  end #edit method
 
   def update
     @city = City.find_by(id: params[:id])
-  if @city.update_attributes(city_params)
-      redirect_to cities_path
-  else
-      render 'new'
-  end
+    if @city.update_attributes(city_params)
+        redirect_to cities_path
+    else
+        render 'new'
+    end #if
+  end #update method
 
   def show
     @city = City.find_by(id: params[:id])
-  end
+  end #show method
 
- end
+
 
   private
 
   #strong parameters
   def city_params
     params.require(:city).permit(:name, :country_name, :time_zone)
-  end
+  end #city_params
 
-end
+end #ClassCitiesController

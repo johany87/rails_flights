@@ -1,12 +1,14 @@
 <div class="container">
-    <h1 class="text-center">City</h1>
-</div>
+    <h1 class="text-center">City Selected</h1>
 
-<article class="row city">
-  <article>
-    <strong>Name</strong>
-    <p> <%= @city.label :name %> </p>
-    <strong>Country Name</strong>
-    <p><%= @city.label :country_name %></p>
-  </article>
-</article>
+    <article class="row city">
+      <strong>Name</strong>
+      <p> <%= @city.name %> </p>
+      <strong>Country Name</strong>
+      <p><%= @city.country_name %></p>
+      <li class="col-md-2"><a href="<%= city_path(@city.id) %>" data-method="delete" class="btn btn-danger"> Delete </a></li>
+      <li class="col-md-2"> <a href="<%= edit_city_path(@city.id)%>" class="btn btn-default"> Edit</a> </li>
+      <a href="<%= cities_path %>" class="btn btn-default"> View all cities </a>
+    </article>
+
+</div>

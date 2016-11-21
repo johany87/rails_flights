@@ -10,10 +10,23 @@
       <%= a.text_field :name, class: "form-control" %>
     </div>
 
+
     <div class="form-group">
       <%= a.label :city_id %>
       <%= a.text_field :city_id, class: "form-control" %>
     </div>
+<!--
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Cities
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <% @cities.each do |c| %>
+              <li><%= c.name %></li>
+            <% end %>
+        </ul>
+    </div> -->
 
     <%= a.submit "Update Airport", class:"btn btn-primary" %>
   <% end %>

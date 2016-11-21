@@ -4,13 +4,13 @@
 
   <% @cities.each do |c| %>
     <article class="row city">
-      <ul>
+      <ul class="list-unstyled">
         <li class="col-md-2"><strong><%= c.name %></strong></li>
         <li class="col-md-2"><%= c.country_name %></li>
         <li class="col-md-2"><%= c.time_zone %></li>
         <li class="col-md-2"><a href="<%= city_path(c.id) %>" data-method="delete" class="btn btn-danger"> Delete </a></li>
-        <li class="col-md-2"> <a href="<%= edit_city_path(c.id)%>" class="btn btn-default"> Edit</a> </li>
-        <li class="col-md-2"> <a href="<%= city_path(c.id)%>">View</a></li>
+        <li class="col-md-2"> <a href="<%= edit_city_path(c.id)%>" class="btn btn-success"> Edit</a> </li>
+        <li class="col-md-2"> <a href="<%= city_path(c.id)%>" class="btn btn-info" >View</a></li>
       </ul>
     </article>
   <% end if @cities.any? %>

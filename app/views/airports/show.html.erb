@@ -1,10 +1,14 @@
 <div class="container">
     <h1 class="text-center">Airport Selected</h1>
-</div>
 
-<% form_for @airport do |a| %>
-  <%= a.label :name %>
-  <%= a.label :city_id %>
-  <a href="<%= airport_path(a.id) %>" data-method="delete" class="btn btn-danger"> Delete </a>
-  <a href="<%= edit_airport_path(a.id)%>" class="btn btn-default"> Edit</a>
-<% end %>
+    <article class="row airport">
+      <strong>Name</strong>
+      <p> <%= @airport.name %> </p>
+      <strong>City</strong>
+      <p><%= @airport.city_id %></p>
+      <a class="btn btn-danger" href="<%= airport_path(@airport.id) %>" data-method="delete"> Delete </a>
+      <a class="btn btn-info" href="<%= edit_airport_path(@airport.id)%>"> Edit</a>
+      <a class="btn btn-default" href="<%= airports_path %>" > View all airports </a>
+    </article>
+
+</div>

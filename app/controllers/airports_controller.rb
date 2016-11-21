@@ -1,12 +1,12 @@
 class AirportsController < ApplicationController
 
   def index
-    @airport = Airport.all
-  end
+    @airports = Airport.all
+  end #index
 
   def new
     @airport = Airport.new
-  end
+  end #new
 
   def create
     @airport = Airport.new(airport_params)
@@ -15,7 +15,7 @@ class AirportsController < ApplicationController
     else
       render 'new'
     end
-  end
+  end #create
 
   def destroy
     airport = Airport.find_by(id: params[:id])
@@ -25,28 +25,30 @@ class AirportsController < ApplicationController
       flash[:error] = "Houston we are in troubles, please try later"
     end
     redirect_to airports_path
-  end
+  end #destroy
 
   def edit
     @airport = Airport.find_by(id: params[:id])
-  end
+  end #edit
 
   def update
     @airport = Airport.find_by(id: params[:id])
-  if @airport.update_attributes(airport_params)
-    redirect_to airports_path
-  else
-    render 'new'
-  end
+    if @airport.update_attributes(airport_params)
+      redirect_to airports_path
+    else
+      render 'new'
+    end
+  end #update
+
 
   def show
     @airport = Airport.find_by(id: params[:id])
-  end 
+  end #show
 
-  end
+  private
 
   def airport_params
     params.require(:airport).permit(:name, :city_id)
-  end
+  end #airport_params
 
-end
+end #AirportsController
