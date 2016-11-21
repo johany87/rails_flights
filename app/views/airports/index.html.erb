@@ -1,0 +1,16 @@
+<div class="container">
+
+  <h1 class="text-center"> Airport </h1>
+
+  <% @airport.each do |a| %>
+  <article class="row airport">
+      <ul class="list-unstyled">
+        <li class="col-md-2"><strong><%= a.name %></strong></li>
+        <li class="col-md-2"><%= a.city_id %></li>
+        <li class="col-md-2"><a href="<%= airport_path(a.id) %>" data-method="delete" class="btn btn-danger"> Delete </a></li>
+        <li class="col-md-2"> <a href="<%= edit_airport_path(a.id)%>" class="btn btn-default"> Edit</a> </li>
+      </ul>
+  </article>
+  <% end if @airport.any? %>
+
+</div>

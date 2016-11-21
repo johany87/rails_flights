@@ -1,0 +1,20 @@
+<div class="container">
+    <h1 class="text-center">Edit Airport</h1>
+</div>
+
+<div class="container">
+  <%= form_for @airport do |a| %>
+
+    <div class="form-group">
+      <%= a.label :name %>
+      <%= a.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= a.label :city_id %>
+      <%= a.text_field :city_id, class: "form-control" %>
+    </div>
+
+    <%= a.submit "Update Airport", class:"btn btn-primary" %>
+  <% end %>
+</div>
