@@ -1,5 +1,6 @@
 <%= form_name ||= "Manage" %>
 <h1 class="text-center"> <%= form_name %> airport </h1>
+
 <% if @airport.errors.any? %>
   <div id="error_explanation">
     <h2>
@@ -28,4 +29,5 @@
     </select>
 
     <%= a.submit "Create Airport", class:"btn btn-primary" %>
+    
   <% end %>
