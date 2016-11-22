@@ -1,0 +1,31 @@
+<%= form_name ||= "Manage" %>
+<h1 class="text-center"> <%= form_name %> airport </h1>
+<% if @airport.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@airport.errors.count, "error") %> prohibited
+      this article from being saved:
+    </h2>
+    <ul>
+      <% @airport.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+  <%= form_for @airport do |a| %>
+
+    <div class="form-group">
+      <%= a.label :name %>
+      <%= a.text_field :name, class: "form-control" %>
+    </div>
+
+    <select name="airport[city_id]">
+      <% @cities.each do |c|  %>
+          <option value="<%= c.id %>"> <%= c.name %> </option>
+      <% end  %>
+    </select>
+
+    <%= a.submit "Create Airport", class:"btn btn-primary" %>
+  <% end %>

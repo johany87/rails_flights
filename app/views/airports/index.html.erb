@@ -6,7 +6,7 @@
   <article class="row airport">
       <ul class="list-unstyled">
         <li class="col-md-2"><strong><%= a.name %></strong></li>
-        <li class="col-md-2"><%= a.city_id %></li>
+        <li class="col-md-2"><%= a.city.name %></li>
         <li class="col-md-2"><a href="<%= airport_path(a.id) %>" data-method="delete" class="btn btn-danger"> Delete </a></li>
         <li class="col-md-2"> <a href="<%= edit_airport_path(a.id)%>" class="btn btn-success"> Edit</a> </li>
         <li class="col-md-2"> <a href="<%= airport_path(a.id)%>" class="btn btn-info">View</a></li>

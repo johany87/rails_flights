@@ -1,11 +1,13 @@
 class AirportsController < ApplicationController
 
+
   def index
     @airports = Airport.all
   end #index
 
   def new
     @airport = Airport.new
+    @cities = City.all
   end #new
 
   def create
@@ -19,23 +21,26 @@ class AirportsController < ApplicationController
 
   def destroy
     airport = Airport.find_by(id: params[:id])
-    if airport.destroy
+  if airport.destroy
       flash[:success] = "Airport Destroyed Successfully"
-    else
+  else
       flash[:error] = "Houston we are in troubles, please try later"
-    end
+  end
     redirect_to airports_path
   end #destroy
 
   def edit
     @airport = Airport.find_by(id: params[:id])
+    @cities = City.all
   end #edit
 
   def update
     @airport = Airport.find_by(id: params[:id])
-    if @airport.update_attributes(airport_params)
+    if @airport.update(airport_params)
+      flash[:success] = "Airport updated"
       redirect_to airports_path
     else
+      flash[:error] = "Airport can´t updated"
       render 'new'
     end
   end #update

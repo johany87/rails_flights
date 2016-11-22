@@ -34,9 +34,11 @@ class CitiesController < ApplicationController
   def update
     @city = City.find_by(id: params[:id])
     if @city.update_attributes(city_params)
+        flash[:success] = "City updated"
         redirect_to cities_path
     else
-        render 'new'
+        flash[:error] = "City can´t updated"
+        render 'edit'
     end #if
   end #update method
 
