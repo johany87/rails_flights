@@ -7,3 +7,4 @@ class CreateAirports < ActiveRecord::Migration[5.0]
     end
   end
 end
+k

@@ -6,13 +6,13 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <title>Bss Bss !</title>
+    <title></title>
   </head>
 
   <body>
     <nav class="navbar navbar-default">
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <a class="navbar-brand" href="<%= root_path %>">Travel with fly, Bss <%= current_user ? "| #{current_user.email}" : '' %></a>
+        <a class="navbar-brand" href="<%= root_path %>">Travelers<%= current_user ? "| #{current_user.email}" : '' %></a>
         <ul class="nav navbar-nav navbar-right">
             <% if !current_user %>
               <li><a href="<%= new_user_session_path %>">Log in</a></li>
@@ -21,6 +21,8 @@
               <li><a href="<%= destroy_user_session_path %>" data-method="delete">Log out</a></li>
               <li><a href="<%= new_city_path %>">New City</a></li>
               <li><a href="<%= new_airport_path %>">New Airport</a></li>
+              <li><a href="<%= new_airline_path %>">New Airline</a></li>
+              <li><a href="<%= new_flight_path %>">New Flight</a></li>
             <% end %>
         </ul>
        </div>

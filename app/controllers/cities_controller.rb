@@ -1,8 +1,8 @@
 class CitiesController < ApplicationController
 
-  def index
-    @cities = City.all
-  end #index method
+    def index
+      @cities = City.all
+    end #index method
 
   def new
     @city = City.new
@@ -18,8 +18,8 @@ class CitiesController < ApplicationController
   end #create method
 
   def destroy
-    city = City.find_by(id: params[:id])
-    if city.destroy
+    find_cities
+    if @city.destroy
       flash[:success] = "City Destroyed Successfully"
     else
       flash[:error] = "Houston we are in troubles, please try it later"
@@ -28,11 +28,11 @@ class CitiesController < ApplicationController
   end #destroy method
 
   def edit
-    @city = City.find_by(id: params[:id])
+    find_cities
   end #edit method
 
   def update
-    @city = City.find_by(id: params[:id])
+    find_cities
     if @city.update_attributes(city_params)
         flash[:success] = "City updated"
         redirect_to cities_path
@@ -43,8 +43,12 @@ class CitiesController < ApplicationController
   end #update method
 
   def show
-    @city = City.find_by(id: params[:id])
+    find_cities
   end #show method
+
+  def find_cities
+    @city = City.find_by(id: params[:id])
+  end
 
 
 

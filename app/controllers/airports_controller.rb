@@ -20,8 +20,8 @@ class AirportsController < ApplicationController
   end #create
 
   def destroy
-    airport = Airport.find_by(id: params[:id])
-  if airport.destroy
+    find_airport
+  if @airport.destroy
       flash[:success] = "Airport Destroyed Successfully"
   else
       flash[:error] = "Houston we are in troubles, please try later"
@@ -30,12 +30,12 @@ class AirportsController < ApplicationController
   end #destroy
 
   def edit
-    @airport = Airport.find_by(id: params[:id])
+    find_airport
     @cities = City.all
   end #edit
 
   def update
-    @airport = Airport.find_by(id: params[:id])
+    find_airport
     if @airport.update(airport_params)
       flash[:success] = "Airport updated"
       redirect_to airports_path
@@ -47,8 +47,13 @@ class AirportsController < ApplicationController
 
 
   def show
-    @airport = Airport.find_by(id: params[:id])
+    find_airport
+    @cities = City.all
   end #show
+
+  def find_airport
+    @airport = Airport.find_by(id: params[:id])
+  end
 
   private
 

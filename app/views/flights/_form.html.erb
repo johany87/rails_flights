@@ -1,0 +1,64 @@
+<%= form_name ||= "Manage" %>
+<h1 class="text-center"> <%= form_name %> flight </h1>
+
+  <% if @flight.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@flight.errors.count, "error") %> prohibited
+      this article from being saved:
+    </h2>
+    <ul>
+      <% @flight.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+<div class="container">
+  <%= form_for @flight do |f| %>
+    <!--Select Origin Airport-->
+    <div class="form-group">
+      <%= f.label :Origin_Airport %>
+      <select name="flight[airport_id]" class="selectpicker">
+        <% @airports.each do |a|  %>
+            <option value="<%= a.id %>"> <%= a.name %> </option>
+        <% end  %>
+      </select>
+    </div>
+    <!--Select Destination Airport-->
+    <div class="form-group">
+      <%= f.label :Destination_Airport %>
+      <select name="flight[airport_id]" class="selectpicker">
+        <% @airports.each do |a|  %>
+            <option value="<%= a.id %>"> <%= a.name %> </option>
+        <% end  %>
+      </select>
+    </div>
+    <!--Periodicity-->
+    <div class="form-group">
+      <%= f.label :periodicity %>
+      <%= f.text_field :periodicity, class: "form-control" %>
+    </div>
+    <!--Periodicity Time-->
+    <div class="form-group">
+      <%= f.label :periodicity_time %>
+      <%= f.datetime_select :periodicity_time, class: "form-control"%>
+    </div>
+    <!--Avg Time-->
+    <div class="form-group">
+      <%= f.label :avg_time %>
+      <%= f.number_field :avg_time, class: "form-control" %>
+    </div>
+    <!--Select Airline-->
+    <div class="form-group">
+      <%= f.label :Airline %>
+      <select name="airline[airline_id]" class="selectpicker">
+        <% @airlines.each do |a|  %>
+            <option value="<%= a.id %>"> <%= a.name %> </option>
+        <% end  %>
+      </select>
+    </div>
+    <%= f.submit "#{form_name} flight", class:"btn btn-primary" %>
+  <% end %>
+</div>

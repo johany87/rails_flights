@@ -4,5 +4,6 @@ class Flight < ApplicationRecord
   has_many :itineraries, class_name: "FlightItinerary"
   has_many :planes, through: :itineraries
   belongs_to :airline, class_name: "Airline", foreign_key: "airline_id"
-  # has_many_and_belongs_to :planes si no me importa la tabla intermedia
+
+  validates :periodicity, :periodicity_time, :avg_time, presence: true
 end

@@ -1,0 +1,27 @@
+<%= form_name ||= "Manage" %>
+<h1 class="text-center"> <%= form_name %> airline </h1>
+
+<% if @airline.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@airline.errors.count, "error") %> prohibited
+      this article from being saved:
+    </h2>
+    <ul>
+      <% @airline.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+  <%= form_for @airline do |a| %>
+
+    <div class="form-group">
+      <%= a.label :name %>
+      <%= a.text_field :name, class: "form-control" %>
+    </div>
+
+    <%= a.submit "#{form_name} Airline", class:"btn btn-primary" %>
+
+  <% end %>

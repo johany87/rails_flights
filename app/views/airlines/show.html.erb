@@ -1,0 +1,13 @@
+
+<div class="container">
+    <h1 class="text-center">Airline Selected</h1>
+
+    <article class="row airport">
+      <strong>Name</strong>
+      <p> <%= @airline.name %> </p>
+      <a class="btn btn-danger" href="<%= airline_path(@airline.id) %>" data-method="delete"> Delete </a>
+      <a class="btn btn-info" href="<%= edit_airline_path(@airline.id)%>"> Edit</a>
+      <a class="btn btn-default" href="<%= airlines_path %>" > View all airlines </a>
+    </article>
+
+</div>

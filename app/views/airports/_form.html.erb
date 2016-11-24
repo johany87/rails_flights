@@ -22,12 +22,12 @@
       <%= a.text_field :name, class: "form-control" %>
     </div>
 
-    <select name="airport[city_id]">
+    <select name="airport[city_id]" class="selectpicker">
       <% @cities.each do |c|  %>
           <option value="<%= c.id %>"> <%= c.name %> </option>
       <% end  %>
     </select>
 
-    <%= a.submit "Create Airport", class:"btn btn-primary" %>
-    
+    <%= a.submit "#{form_name} Airport", class:"btn btn-primary" %>
+
   <% end %>
