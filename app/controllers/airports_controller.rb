@@ -1,6 +1,5 @@
 class AirportsController < ApplicationController
 
-
   def index
     @airports = Airport.all
   end #index
@@ -13,8 +12,10 @@ class AirportsController < ApplicationController
   def create
     @airport = Airport.new(airport_params)
     if @airport.save
+      flash[:success] = "Airport created. Ok"
       redirect_to airports_path
     else
+      @cities = City.all
       render 'new'
     end
   end #create

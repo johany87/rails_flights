@@ -1,1 +1,21 @@
+<div class="container">
 
+<h1 class="text-center"> Flight </h1>
+
+<% @flights.each do |f| %>
+<article class="row airport">
+    <ul class="list-unstyled">
+      <li class="col-md-1"><strong>Origin</strong></li>
+      <li class="col-md-1"><%= f.origin_airport_id %></li>
+      <li class="col-md-1"><strong>Destination</strong></li>
+      <li class="col-md-1"><%= f.destination_airport_id %></li>
+      <li class="col-md-1"><strong>Airline</strong></li>
+      <li class="col-md-1"><%= f.airline.name %></li>
+      <li class="col-md-1"><a href="<%= flight_path(f.id) %>" data-method="delete" class="btn btn-danger"> Delete </a></li>
+      <li class="col-md-1"> <a href="<%= edit_flight_path(f.id)%>" class="btn btn-success"> Edit</a> </li>
+      <li class="col-md-1"> <a href="<%= flight_path(f.id)%>" class="btn btn-info">View</a></li>
+    </ul>
+</article>
+<% end if @flights.any?%>
+
+</div>

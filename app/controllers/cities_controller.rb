@@ -11,6 +11,7 @@ class CitiesController < ApplicationController
   def create
     @city = City.new(city_params)
     if @city.save
+      flash[:success] = "City created Successfully"
       redirect_to cities_path
     else
       render 'new'
@@ -49,8 +50,6 @@ class CitiesController < ApplicationController
   def find_cities
     @city = City.find_by(id: params[:id])
   end
-
-
 
   private
 

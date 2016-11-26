@@ -4,6 +4,4 @@ class Flight < ApplicationRecord
   has_many :itineraries, class_name: "FlightItinerary"
   has_many :planes, through: :itineraries
   belongs_to :airline, class_name: "Airline", foreign_key: "airline_id"
-
-  validates :periodicity, :periodicity_time, :avg_time, presence: true
 end

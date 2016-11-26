@@ -1,0 +1,42 @@
+<%= form_name ||= "Manage" %>
+<h1 class="text-center"> <%= form_name %> plane </h1>
+
+  <% if @plane.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@plane.errors.count, "error") %> prohibited
+      this article from being saved:
+    </h2>
+    <ul>
+      <% @plane.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+<div class="container">
+  <% form_for @plane do |p| %>
+    <div class="container">
+      <% p.label :code %>
+      <% p.number_field :code, class: "form-control" %>
+    </div>
+
+    <div class="container">
+      <% p.label :seats_A %>
+      <% p.number_field :seats_a, class: "form-control" %>
+    </div>
+
+    <div class="container">
+      <% p.label :seats_B %>
+      <% p.number_field :seats_a, class: "form-control" %>
+    </div>
+
+    <select name="plane[airline_id]" class="selectpicker">
+      <% @airlines.each do |a|  %>
+          <option value="<% a.id %>"> <%= a.name %> </option>
+      <% end  %>
+    </select>
+
+  <% end %>
+</div>

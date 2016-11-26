@@ -1,26 +1,28 @@
-<%= form_name ||= "Manage" %>
-<h1 class="text-center"> <%= form_name %> flight </h1>
+<div class="container col-md-12">
+  <%= form_name ||= "Manage" %>
+  <h1 class="text-center"> <%= form_name %> flight </h1>
 
-  <% if @flight.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= pluralize(@flight.errors.count, "error") %> prohibited
-      this article from being saved:
-    </h2>
-    <ul>
-      <% @flight.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
+    <% if @flight.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@flight.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @flight.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
+</div>
 
-<div class="container">
+<div class="container col-md-5">
   <%= form_for @flight do |f| %>
     <!--Select Origin Airport-->
     <div class="form-group">
-      <%= f.label :Origin_Airport %>
-      <select name="flight[airport_id]" class="selectpicker">
+      <%= f.label :origin %>
+      <select name="flight[origin_airport_id]" class="selectpicker">
         <% @airports.each do |a|  %>
             <option value="<%= a.id %>"> <%= a.name %> </option>
         <% end  %>
@@ -28,8 +30,8 @@
     </div>
     <!--Select Destination Airport-->
     <div class="form-group">
-      <%= f.label :Destination_Airport %>
-      <select name="flight[airport_id]" class="selectpicker">
+      <%= f.label :Destination%>
+      <select name="flight[destination_airport_id]" class="selectpicker">
         <% @airports.each do |a|  %>
             <option value="<%= a.id %>"> <%= a.name %> </option>
         <% end  %>
@@ -53,10 +55,10 @@
     <!--Select Airline-->
     <div class="form-group">
       <%= f.label :Airline %>
-      <select name="airline[airline_id]" class="selectpicker">
-        <% @airlines.each do |a|  %>
-            <option value="<%= a.id %>"> <%= a.name %> </option>
-        <% end  %>
+      <select name="flight[airline_id]" class="selectpicker">
+        <option value="2">Avianca</option>
+        <option value="3">Viva Colombia</option>
+        <option value="5">Latam</option>
       </select>
     </div>
     <%= f.submit "#{form_name} flight", class:"btn btn-primary" %>
