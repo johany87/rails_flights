@@ -1,5 +1,6 @@
+<!--Errors -->
 <div class="container col-md-12">
-  <%= form_name ||= "Manage" %>
+  <% form_name ||= "Manage" %>
   <h1 class="text-center"> <%= form_name %> flight </h1>
 
     <% if @flight.errors.any? %>
@@ -17,13 +18,14 @@
   <% end %>
 </div>
 
+<!--form-->
 <div class="container col-md-5">
   <%= form_for @flight do |f| %>
     <!--Select Origin Airport-->
     <div class="form-group">
       <%= f.label :origin %>
       <select name="flight[origin_airport_id]" class="selectpicker">
-        <% @airports.each do |a|  %>
+        <%= @airports.each do |a|  %>
             <option value="<%= a.id %>"> <%= a.name %> </option>
         <% end  %>
       </select>
@@ -32,7 +34,7 @@
     <div class="form-group">
       <%= f.label :Destination%>
       <select name="flight[destination_airport_id]" class="selectpicker">
-        <% @airports.each do |a|  %>
+        <%= @airports.each do |a|  %>
             <option value="<%= a.id %>"> <%= a.name %> </option>
         <% end  %>
       </select>
@@ -40,7 +42,7 @@
     <!--Periodicity-->
     <div class="form-group">
       <%= f.label :periodicity %>
-      <%= f.text_field :periodicity, class: "form-control" %>
+      <%= f.number_field :periodicity, class: "form-control" %>
     </div>
     <!--Periodicity Time-->
     <div class="form-group">
@@ -56,9 +58,9 @@
     <div class="form-group">
       <%= f.label :Airline %>
       <select name="flight[airline_id]" class="selectpicker">
-        <option value="2">Avianca</option>
-        <option value="3">Viva Colombia</option>
-        <option value="5">Latam</option>
+        <%= @airlines.each do |a|  %>
+            <option value="<%= a.id %>"> <%= a.name %> </option>
+        <% end  %>
       </select>
     </div>
     <%= f.submit "#{form_name} flight", class:"btn btn-primary" %>

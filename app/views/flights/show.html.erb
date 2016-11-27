@@ -1,2 +1,15 @@
-<h1>Flights#show</h1>
-<p>Find me in app/views/flights/show.html.erb</p>
+<div class="container">
+    <h1 class="text-center">Flight Selected</h1>
+    <article class="row flight">
+      <strong>Origin</strong>
+      <p> <%= @airport.name %> </p>
+      <strong>Destination</strong>
+      <strong>Periodicity</strong>
+      <strong>Origin Time</strong>
+      <strong>AVG Time</strong>
+      <strong>Airline ID</strong>
+      <a class="btn btn-danger" href="<%= flight_path(@airport.id) %>" data-method="delete"> Delete </a>
+      <a class="btn btn-info" href="<%= edit_airport_path(@airport.id)%>"> Edit</a>
+      <a class="btn btn-default" href="<%= airports_path %>" > View all flights </a>
+    </article>
+</div>

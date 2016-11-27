@@ -1,21 +1,23 @@
-<%= form_name ||= "Manage" %>
-<h1 class="text-center"> <%= form_name %> airline </h1>
+<div class="container">
+  <%= form_name ||= "Manage" %>
+  <h1 class="text-center"> <%= form_name %> airline </h1>
 
-<% if @airline.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= pluralize(@airline.errors.count, "error") %> prohibited
-      this article from being saved:
-    </h2>
-    <ul>
-      <% @airline.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+  <% if @airline.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@airline.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @airline.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
 
-
+<div class="container">
   <%= form_for @airline do |a| %>
 
     <div class="form-group">
@@ -26,3 +28,4 @@
     <%= a.submit "#{form_name} Airline", class:"btn btn-primary" %>
 
   <% end %>
+</div>

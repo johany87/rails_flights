@@ -2,7 +2,6 @@ class FlightsController < ApplicationController
 
   def index
     @flights = Flight.all
-    @airports = Airport.all
   end #index
 
   def new
@@ -14,6 +13,7 @@ class FlightsController < ApplicationController
   def create
     @flight = Flight.new(flight_params)
     if @flight.save
+      flash[:success] = "Flight created Ok"
       redirect_to flights_path
     else
       render 'new'
@@ -33,6 +33,8 @@ class FlightsController < ApplicationController
   def edit
     find_flight
     @flights = Flight.all
+    @airports = Airport.all
+    @airlines = Airline.all
   end #edit
 
   def update
@@ -49,6 +51,7 @@ class FlightsController < ApplicationController
   def show
     find_flight
     @airports = Airport.all
+    @airlines = Airline.all
   end #show
 
 

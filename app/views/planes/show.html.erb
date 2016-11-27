@@ -1,0 +1,16 @@
+<div class="container">
+    <h1 class="text-center">Plane Selected</h1>
+    <article class="row flight">
+      <strong class="col-md-1">Code</strong>
+      <p> <%= @plane.code  %> </p>
+      <strong class="col-md-1">Seats A</strong>
+      <p><%= @plane.seats_a %></p>
+      <strong class="col-md-1">Seats B</strong>
+      <p><%= @plane.seats_b %></p>
+      <strong class="col-md-1">Airlines</strong>
+      <p><%= @plane.airline.name %></p>
+      <a class="btn btn-danger" href="<%= plane_path(@plane.id) %>" data-method="delete"> Delete </a>
+      <a class="btn btn-info" href="<%= edit_plane_path(@plane.id)%>"> Edit</a>
+      <a class="btn btn-default" href="<%= planes_path %>" > View all planes </a>
+    </article>
+</div>

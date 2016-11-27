@@ -1,0 +1,23 @@
+<div class="container">
+
+  <h1 class="text-center"> Planes </h1>
+
+  <% @planes.each do |pl| %>
+  <article class="row airline">
+      <ul class="list-unstyled">
+        <strong class="col-md-1">Code</strong>
+        <li class="col-md-1"><strong><%= pl.code %></strong></li>
+        <strong class="col-md-1">Seats A</strong>
+        <li class="col-md-1"><strong><%= pl.seats_a %></strong></li>
+        <strong class="col-md-1">Seats B</strong>
+        <li class="col-md-1"><strong><%= pl.seats_b %></strong></li>
+        <strong class="col-md-1">Airline</strong>
+        <li class="col-md-1"><strong><%= pl.airline.name %></strong></li>
+        <li class="col-md-1"><a href="<%= plane_path(pl.id) %>" data-method="delete" class="btn btn-danger"> Delete </a></li>
+        <li class="col-md-1"> <a href="<%= edit_plane_path(pl.id)%>" class="btn btn-success"> Edit</a> </li>
+        <li class="col-md-1"> <a href="<%= plane_path(pl.id)%>" class="btn btn-info">View</a></li>
+      </ul>
+  </article>
+  <% end if @planes.any?%>
+
+</div>
