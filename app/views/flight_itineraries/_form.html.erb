@@ -1,0 +1,45 @@
+<!--Errors-->
+<div class="container">
+  <%= form_name ||= "Manage" %>
+  <h1 class="text-center"> <%= form_name %> itinerary </h1>
+
+    <% if @flight_itinerary.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@flight_itinerary.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @flight_itinerary.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+</div>
+<!--Form-->
+<div class="container">
+  <%= form_for @flight_itinerary do |fi| %>
+    <!--Select Plane-->
+    <div class="form-group">
+      <%= fi.label :Plane %>
+      <select name="flight_itinerary[plane_id]" class="selectpicker">
+        <%= @planes.each do |pl|  %>
+            <option value="<%= pl.id %>"> <%= pl.code %> </option>
+        <% end  %>
+      </select>
+    </div>
+    <!--Select Flight-->
+    <div class="form-group">
+      <%= fi.label :Flight %>
+      <select name="flight_itinerary[flight_id]" class="selectpicker">
+        <%= @flights.each do |f|  %>
+            <option value="<%= f.id %>"> <%= f.origin_airport_id  %> </option>
+        <% end %>
+      </select>
+    </div>
+
+    <!--send button-->
+    <%= fi.submit "#{form_name} flight itinerary", class:"btn btn-primary" %>
+  <% end %>
+</div>

@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :airlines
   resources :flights
   resources :planes
+  resources :flight_itineraries
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
