@@ -2,14 +2,19 @@
     <h1 class="text-center">Flight Selected</h1>
     <article class="row flight">
       <strong>Origin</strong>
-      <p> <%= @airport.name %> </p>
+      <p> <%= @flight.origin_airport.name %> </p>
       <strong>Destination</strong>
+      <p> <%= @flight.destination_airport.name %> </p>
       <strong>Periodicity</strong>
-      <strong>Origin Time</strong>
+      <p> <%= @flight.periodicity %> </p>
+      <strong>Periodicity Time</strong>
+      <p> <%= @flight.periodicity_time %> </p>
       <strong>AVG Time</strong>
+      <p> <%= @flight.avg_time %> </p>
       <strong>Airline ID</strong>
-      <a class="btn btn-danger" href="<%= flight_path(@airport.id) %>" data-method="delete"> Delete </a>
-      <a class="btn btn-info" href="<%= edit_airport_path(@airport.id)%>"> Edit</a>
-      <a class="btn btn-default" href="<%= airports_path %>" > View all flights </a>
+      <p> <%= @flight.airline.name %> </p>
+      <a class="btn btn-danger" href="<%= flight_path(@flight.id) %>" data-method="delete"> Delete </a>
+      <a class="btn btn-info" href="<%= edit_airport_path(@flight.id)%>"> Edit</a>
+      <a class="btn btn-default" href="<%= flights_path %>" > View all flights </a>
     </article>
 </div>
